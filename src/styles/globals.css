@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  background: #05070C;
+  color: #E6E9F0;
+  font-family: "Inter", system-ui, sans-serif;
+  font-feature-settings: "cv11", "ss01", "ss03";
+}
+
+/* Operational grid background — fixed, subtle, mission-control */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(800px 400px at 80% -10%, rgba(245,166,35,0.05), transparent 60%),
+    radial-gradient(600px 400px at 10% 110%, rgba(61,140,230,0.04), transparent 60%),
+    linear-gradient(to bottom, #05070C, #07090F 40%, #05070C);
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(245,166,35,0.18);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(245,166,35,0.4); background-clip: padding-box; border: 2px solid transparent; }
+
+/* Selection */
+::selection { background: rgba(245,166,35,0.30); color: #fff; }
+
+/* Utility: dot signal */
+.signal-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(245,166,35,0.6);
+  animation: pulse_signal 2.2s ease-out infinite;
+}
+
+/* Tactical card */
+.tactical {
+  background: linear-gradient(180deg, rgba(23,28,40,0.7), rgba(16,20,29,0.7));
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  backdrop-filter: blur(14px);
+}
+
+/* Scanline overlay */
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+.scanline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(245,166,35,0.06), transparent);
+  pointer-events: none;
+  animation: scan 6s linear infinite;
+}
