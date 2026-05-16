@@ -12,13 +12,14 @@ import {
   PackageSearch,
   Settings,
   Sigma,
+  type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 type NavItem = {
   href: string;
   label: string;
-  Icon: React.ComponentType<{ size?: number; className?: string }>;
+  Icon: LucideIcon;
   badge?: { value: string; tone: "critical" | "signal" | "info" };
 };
 
